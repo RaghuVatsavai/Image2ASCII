@@ -18,3 +18,20 @@ while (imagePathValid == False):
 
 img = Image.open(imagePath).convert('L')
 img.save("greyscale.png")
+
+# What ASCII characters will I use?
+# I could use ".:-+*#%@"
+# The denser characters should correlate to the more intense pixels like #%@
+# The lighter characters should correlate to the lower intense pixels like .:-+
+
+# Test to loop through all the pixels and print their brightness
+
+brightnessValues = []
+
+for i in range(img.width):
+    for j in range(img.height):
+        brightness = img.getpixel((i, j))
+        brightnessValues.append(brightness)
+
+print(len(brightnessValues))
+print("Max Val:", max(brightnessValues))
