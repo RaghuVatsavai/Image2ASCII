@@ -1,4 +1,5 @@
 import os.path
+from PIL import Image
 
 # First I need to get an input images from the user
 # Also need to validate if that image path actually exists
@@ -13,4 +14,7 @@ while (imagePathValid == False):
     else:
         print("Error: Image not found")
 
+# I need to convert the image into grayscale
 
+img = Image.open(imagePath).convert('L')
+img.save("greyscale.png")
