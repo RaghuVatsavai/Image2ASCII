@@ -1,37 +1,34 @@
 import os.path
 from PIL import Image
 
-# First I need to get an input images from the user
-# Also need to validate if that image path actually exists
-
 imagePathValid = False
-
-while (imagePathValid == False):
+while not imagePathValid:
     imagePath = input("Enter the image path to convert to ASCII...\n")
-    if (os.path.isfile(imagePath) == True):
+    if os.path.isfile(imagePath):
         imagePathValid = True
         print("Valid image path.")
     else:
         print("Error: Image not found")
 
-# I need to convert the image into grayscale
-
 img = Image.open(imagePath).convert('L')
 img.save("greyscale.png")
 
-# What ASCII characters will I use?
-# I could use ".:-+*#%@"
-# The denser characters should correlate to the more intense pixels like #%@
-# The lighter characters should correlate to the lower intense pixels like .:-+
+newWidth = 100
+width, height = img.size
+aspectRatio = height / width
+newHeight = int(newWidth * aspectRatio * 0.55)
+img = img.resize((newWidth, newHeight))
 
-# Test to loop through all the pixels and print their brightness
+asciiChars = '.:-+*#%@'
 
-brightnessValues = []
+asciiString = ""
 
-for i in range(img.width):
-    for j in range(img.height):
-        brightness = img.getpixel((i, j))
-        brightnessValues.append(brightness)
+for i in range(img.height):
+    for j in range(img.width):
+        brightness = img.getpixel((j, i))
+        index = min(brightness // (256 // len(asciiChars)), len(asciiChars) - 1)
+        asciiString += asciiChars[index]
+    asciiString += "\n"  
 
-print(len(brightnessValues))
-print("Max Val:", max(brightnessValues))
+print(asciiString)
+
