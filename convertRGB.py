@@ -1,6 +1,12 @@
 import os.path
 from PIL import Image
 
+def getRGBColour(r, g, b):
+    return f"\033[38;2;{r};{g};{b}m"
+
+def resetColour():
+    return "\033[0m"
+
 imagePathValid = False
 while not imagePathValid:
     imagePath = input("Enter the image path to convert to ASCII...\n")
@@ -10,25 +16,27 @@ while not imagePathValid:
     else:
         print("Error: Image not found")
 
-img = Image.open(imagePath).convert('L')
-img.save("greyscale.png")
+img = Image.open(imagePath).convert(('RGB'))
 
-newWidth = 100
+newWidth = 500 
 width, height = img.size
 aspectRatio = height / width
+# 0.55 multiplier since characters are taller than wider
 newHeight = int(newWidth * aspectRatio * 0.55)
 img = img.resize((newWidth, newHeight))
 
-asciiChars = '.:-+*#%@'
+asciiChars = ' .:-+*#%@'
 
 asciiString = ""
 
 for i in range(img.height):
     for j in range(img.width):
-        brightness = img.getpixel((j, i))
+        r, g, b = img.getpixel((j, i))
+        brightness = int(0.3 * r + 0.59 * g + 0.11 * b)
+        # takes the min so that no matter what brightness 0-255 that it has an index
         index = min(brightness // (256 // len(asciiChars)), len(asciiChars) - 1)
-        asciiString += asciiChars[index]
+        colour = getRGBColour(r, g, b)
+        asciiString += colour + asciiChars[index] + resetColour()
     asciiString += "\n"  
 
 print(asciiString)
-
