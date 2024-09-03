@@ -60,9 +60,9 @@ def create_ASCII_RGB(img):
     asciiChars = ' .:-+*#%@'
     asciiString = ""
 
-    for i in range(img.height):
-        for j in range(img.width):
-            r, g, b = img.getpixel((j, i))
+    for y in range(img.height):
+        for x in range(img.width):
+            r, g, b = img.getpixel((x, y))
             brightness = int(0.3 * r + 0.59 * g + 0.11 * b)
             # takes the min so that no matter what brightness 0-255 always has an index
             index = min(brightness // (256 // len(asciiChars)), len(asciiChars) - 1)

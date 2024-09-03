@@ -10,7 +10,7 @@ def getImagePath():
             print("Valid image path.")
         else:
             print("Error: Image not found")
-            
+
     return imagePath
 
 def getImageWidth(imagePath):
@@ -52,9 +52,9 @@ def create_ASCII_Greyscale(img):
     asciiChars = ' .:-+*#%@'
     asciiString = ""
 
-    for i in range(img.height):
-        for j in range(img.width):
-            brightness = img.getpixel((j, i))
+    for y in range(img.height):
+        for x in range(img.width):
+            brightness = img.getpixel((x, y))
             # takes the min so that no matter what brightness 0-255 always has an index
             index = min(brightness // (256 // len(asciiChars)), len(asciiChars) - 1)
             asciiString += asciiChars[index]
