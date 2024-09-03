@@ -24,7 +24,7 @@ def initializeImage():
     img = img.resize((newWidth, newHeight))
     return img
 
-def createASCII_Greyscale(img):
+def create_ASCII_Greyscale(img):
     asciiChars = ' .:-+*#%@'
     asciiString = ""
 
@@ -38,8 +38,8 @@ def createASCII_Greyscale(img):
 
     print(asciiString)
 
-def main():
-    createASCII_Greyscale(initializeImage())
+def run():
+    create_ASCII_Greyscale(initializeImage())
 
-main()
+run()
 

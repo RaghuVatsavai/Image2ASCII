@@ -30,7 +30,7 @@ def initializeImage():
     img = img.resize((newWidth, newHeight))
     return img
 
-def createASCII_RGB(img):
+def create_ASCII_RGB(img):
     asciiChars = ' .:-+*#%@'
     asciiString = ""
 
@@ -46,7 +46,7 @@ def createASCII_RGB(img):
 
     print(asciiString)
 
-def main():
-    createASCII_RGB(initializeImage())
+def run():
+    create_ASCII_RGB(initializeImage())
 
-main()
+run()
