@@ -60,7 +60,6 @@ def resizeImage(img, userWidth):
     return img
 
 def create_ASCII_RGB(img):
-    #asciiChars = ' .:-+*#%@'
     asciiString = ""
 
     for y in range(img.height):
@@ -76,8 +75,7 @@ def create_ASCII_RGB(img):
     print(asciiString)
 
 def render_ASCII_RGB_Image(img):
-    #asciiChars = ' .:-+*#%@'
-
+    
     # Determine a font for the ASCII characters
     # I'll just use the default one for now
     characterFont = ImageFont.load_default()
