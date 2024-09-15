@@ -72,7 +72,7 @@ def create_ASCII_RGB(img):
 
     print(asciiString)
 
-def render_ASCII_Image(img):
+def render_ASCII_RGB_Image(img):
     asciiChars = ' .:-+*#%@'
 
     # Determine a font for the ASCII characters
@@ -115,6 +115,6 @@ def run():
     resizedImage = resizeImage(image, newWidth)
     create_ASCII_RGB(resizedImage)
     # Give resizedImage to render_ASCII_Image
-    render_ASCII_Image(resizedImage)
+    render_ASCII_RGB_Image(resizedImage)
 
 run()
