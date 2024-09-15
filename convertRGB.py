@@ -105,7 +105,7 @@ def render_ASCII_RGB_Image(img):
             characterToAdd = asciiChars[index]
             draw.text((x * charWidth * aspectRatioCorrection, y * charHeight), characterToAdd, fill=(r, g, b), font=characterFont)
 
-    canvas.save("ascii_image.png")
+    canvas.save("./savedImages/ascii_rgb_image.png")
     canvas.show()
 
 def run():
