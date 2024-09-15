@@ -1,6 +1,9 @@
 import os.path
 from PIL import Image, ImageFont, ImageDraw
 
+# globals
+asciiChars = " .'`^\",:;I!li><~+_-?[]{}1()|\\//tfrjxnuvczXYUJCQL0OZmwqwpdkbhao*#MW&8%B@$"
+
 def getRGBColour(r, g, b):
     return f"\033[38;2;{r};{g};{b}m"
 
@@ -57,7 +60,7 @@ def resizeImage(img, userWidth):
     return img
 
 def create_ASCII_RGB(img):
-    asciiChars = ' .:-+*#%@'
+    #asciiChars = ' .:-+*#%@'
     asciiString = ""
 
     for y in range(img.height):
@@ -73,7 +76,7 @@ def create_ASCII_RGB(img):
     print(asciiString)
 
 def render_ASCII_RGB_Image(img):
-    asciiChars = ' .:-+*#%@'
+    #asciiChars = ' .:-+*#%@'
 
     # Determine a font for the ASCII characters
     # I'll just use the default one for now
