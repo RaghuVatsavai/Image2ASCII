@@ -84,7 +84,7 @@ def render_ASCII_Greyscale_Image(img):
             characterToAdd = asciiChars[index]
             draw.text((x * charWidth * aspectRatioCorrection, y * charHeight), characterToAdd, fill=brightness, font=characterFont)
 
-    canvas.save("ascii_greyscale_image.png")
+    canvas.save("./savedImages/ascii_greyscale_image.png")
     canvas.show()
 
 def run():
