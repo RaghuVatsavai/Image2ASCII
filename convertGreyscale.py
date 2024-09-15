@@ -1,5 +1,5 @@
 import os.path
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
 
 def getImagePath():
     imagePathValid = False
@@ -62,12 +62,38 @@ def create_ASCII_Greyscale(img):
 
     print(asciiString)
 
+def render_ASCII_Greyscale_Image(img):
+    asciiChars = ' .:-+*#@'
+
+    characterFont = ImageFont.load_default()
+    bbox = characterFont.getbbox('A')
+    charWidth = bbox[2] - bbox[0]
+    charHeight = bbox[3] - bbox[1]
+
+    aspectRatioCorrection = 0.55
+    canvasWidth = int(img.width * charWidth * aspectRatioCorrection)
+    canvasHeight = img.height * charHeight
+
+    canvas = Image.new('L', (canvasWidth, canvasHeight), color="black")
+    draw = ImageDraw.Draw(canvas)
+
+    for y in range(img.height):
+        for x in range(img.width):
+            brightness = img.getpixel((x, y))
+            index = min(brightness // (256 // len(asciiChars)), len(asciiChars) - 1)
+            characterToAdd = asciiChars[index]
+            draw.text((x * charWidth * aspectRatioCorrection, y * charHeight), characterToAdd, fill=brightness, font=characterFont)
+
+    canvas.save("ascii_greyscale_image.png")
+    canvas.show()
+
 def run():
     imagePath = getImagePath()
     image = getImage(imagePath)
     newWidth = getImageWidth(imagePath)
     resizedImage = resizeImage(image, newWidth)
     create_ASCII_Greyscale(resizedImage)
+    render_ASCII_Greyscale_Image(resizedImage)
 
 run()
 
