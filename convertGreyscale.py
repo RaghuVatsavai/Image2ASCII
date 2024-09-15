@@ -63,7 +63,7 @@ def create_ASCII_Greyscale(img):
     print(asciiString)
 
 def render_ASCII_Greyscale_Image(img):
-    asciiChars = ' .:-+*#@'
+    asciiChars = " .'`^\",:;I!li><~+_-?[]{}1()|\\//tfrjxnuvczXYUJCQL0OZmwqwpdkbhao*#MW&8%B@$"
 
     characterFont = ImageFont.load_default()
     bbox = characterFont.getbbox('A')
