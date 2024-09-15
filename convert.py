@@ -1,5 +1,3 @@
-asciiChars = " .'`^\",:;I!li><~+_-?[]{}1()|\//tfrjxnuvczXYUJCQL0OZmwqwpdkbhao*#MW&8%B@$"
-
 def main():
     inputValidFlag = False
     while not inputValidFlag:
