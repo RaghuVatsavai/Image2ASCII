@@ -15,5 +15,9 @@ The program will ask you for:
 
 The most recent image generated will be in the **savedImages** folder.
 
+Here are some examples of images I created:
 
+![Musashi, in RGB ASCII art](./exampleImages/ascii_musashi.png)
+![Doom Logo, in RGB ASCII art](./exampleImages//ascii_doom.png)
+![Initial D scence, in greyscale ASCII art](./exampleImages/ascii_initiald.png)
 
