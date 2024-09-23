@@ -5,8 +5,8 @@ This program converts an image into ASCII art in the terminal.
 Clone the repository and navigate into the project directory. \
 Install Python 3 using this command: \
 `pip install python3` \
-Then run the Python script using this command: \ 
-`python3 convert.py` \
+Then run the Python script using this command:  
+`python3 convert.py` 
 
 The program will ask you for:
 1. Whether the ASCII art is produced should be greyscale or RGB
