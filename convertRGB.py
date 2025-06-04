@@ -110,6 +110,7 @@ def render_ASCII_RGB_Image(img):
     canvas.show()
 
 def run():
+    # Run all these functions in this order
     imagePath = getImagePath()
     image = getImage(imagePath)
     newWidth = getImageWidth(imagePath)
