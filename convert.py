@@ -1,5 +1,3 @@
-from PIL import ImageDraw, Image, ImageFont
-
 def main():
     inputValidFlag = False
     while not inputValidFlag:
